@@ -2727,7 +2727,8 @@ NSString *kSessionsKVCKey = @"sessions";
             // becomes key. Note that if a popup closes this function shouldn't
             // be called at all because it makes us key before closing itself.
             // If a popup is opening, though, we shouldn't close ourselves.
-            if (![[NSApp keyWindow] isKindOfClass:[PopupWindow class]] &&
+            // DO NOT HIDE MY HOTKEY WINDOW WHEN IT LOSES FOCUS!!!
+            /* if (![[NSApp keyWindow] isKindOfClass:[PopupWindow class]] &&
                 ![[[NSApp keyWindow] windowController] isKindOfClass:[ProfilesWindow class]] &&
                 ![[[NSApp keyWindow] windowController] isKindOfClass:[PreferencePanel class]]) {
                 PtyLog(@"windowDidResignKey: new key window isn't popup so hide myself");
@@ -2735,7 +2736,7 @@ NSString *kSessionsKVCKey = @"sessions";
                     [[HotkeyWindowController sharedInstance] doNotOrderOutWhenHidingHotkeyWindow];
                 }
                 [[HotkeyWindowController sharedInstance] hideHotKeyWindow:hotkeyTerminal];
-            }
+            }*/
         }
     }
 }
